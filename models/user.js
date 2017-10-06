@@ -21,6 +21,16 @@ userSchema.pre('save', async function (next) {
 		this.password = passwordHash;
 		next();
 	} catch (err) {
-
+		next(err)
 	}
 })
+
+userSchema.methods.isValidPassword = await function (newPassword) {
+	try {
+		return await bcrypt.compare(newPassword, this.password)
+	} catch (err) {
+		throw new Error(err)
+	}
+}
+
+module.exports = mongoose.model('User', userSchema)
