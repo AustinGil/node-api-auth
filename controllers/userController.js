@@ -25,7 +25,7 @@ module.exports = {
 		const newUser = new User({ email, password })
 		await newUser.save()
 
-		// Creates the new user token
+		// Creates the new user token when signed up
 		const token = signToken(newUser)
 
 		res.status(200).json({ token })
@@ -33,10 +33,12 @@ module.exports = {
 
 	signIn: async (req, res, next) => {
 
+		// Creates the new user token when signed in
 		const token = signToken(req.user)
 		res.status(200).json({ token })
 	},
 
+	// Secret route for users that have been authenticated
 	secret: async (req, res, next) => {
 		res.json({ secret: "resource" });
 	}
