@@ -14,7 +14,7 @@
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.17.2",
 		"express": "^4.15.4",
-		"express-promise-router": "^2.0.0",
+		"express-promise-router": "^3.0.3",
 		"joi": "^10.6.0",
 		"jsonwebtoken": "^8.0.0",
 		"mongoose": "^4.11.10",
